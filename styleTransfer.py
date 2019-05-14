@@ -177,7 +177,7 @@ def compute_layer_style_cost(a_S, a_G):
     return J_style_layer
 
 
-def compute_style_cost(model, STYLE_LAYERS):
+def compute_style_cost(model, STYLE_LAYERS, sess):
     """
     Computes the overall style cost from several chosen layers
     
@@ -277,7 +277,7 @@ def model_nn(sess,
     content_cost = compute_content_cost(content_activation, generated_activation)
 
     sess.run(vgg['input'].assign(style_image))
-    style_cost = compute_style_cost(vgg, styleLayers)
+    style_cost = compute_style_cost(vgg, styleLayers, sess)
 
     total_cost = compute_total_cost(content_cost, style_cost,
                                     alpha=10, beta=40)
