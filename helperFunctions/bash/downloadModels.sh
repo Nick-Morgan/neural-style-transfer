@@ -32,6 +32,14 @@ do
 	name="${names[$idx]}"
 	
 	if ! [ -e models/"$name" ]; then
-		wget "$base_url$id" -O "models/$name"
+		
+		# imagenet model is large, and thus needs additional wget logic to accept
+		# google's large file redirect
+		if [ "$name" = "imagenet-vgg-verydeep-19.mat" ]; then
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id='$id -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=$id" -O FILENAME.mat && rm -rf /tmp/cookies.txt
+
+		else # every other file can just use simple wget
+			wget "$base_url$id" -O "models/$name"
+		fi
 	fi
 done
