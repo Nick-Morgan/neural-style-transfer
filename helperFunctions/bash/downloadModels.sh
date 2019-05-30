@@ -19,7 +19,7 @@ declare -a ids=(
 
 declare -a names=(
 	imagenet-vgg-verydeep-19.mat
-	scream.ckpt
+	the_scream.ckpt
 	rain_princess.ckpt
 	la_muse.ckpt
 	wreck.ckpt
