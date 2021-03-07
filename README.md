@@ -1,3 +1,9 @@
+# Update - March 2021
+- I have created a new repo, ([nst-zoo](https://github.com/Nick-Morgan/nst-zoo))which is much, much more thorough than this one. 
+- This repo contains some spaghetti code, but contains some fun images, and will probably stay up forever since it made it into the arctic code vault.
+
+
+
 # neural-style-transfer
 
 ![Example Image](img/example.png)
